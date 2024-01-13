@@ -1,11 +1,6 @@
 package week4codingassignment;
-		import java.time.Year;
-import java.util.Arrays;
-		import java.util.stream.IntStream;
 		
-
-		import javax.management.loading.PrivateClassLoader;
-		import javax.swing.plaf.basic.BasicInternalFrameTitlePane.IconifyAction;
+import java.util.Arrays;
 		
 public class Week4CodingAssignment {
 
@@ -21,7 +16,7 @@ public class Week4CodingAssignment {
 		// Instructions are to get the difference of the first and last element.
 		// However we are not allowed to use ages[7]...
 		int lengthOfArr = ages.length;
-		int difference = Math.abs(ages[lengthOfArr - lengthOfArr] - ages[lengthOfArr - 1]);
+		int difference = Math.abs(ages[0] - ages[lengthOfArr - 1]);
 		
 
 		System.out.println("1. Difference of first and last element in ages[] = " + difference);
@@ -131,12 +126,17 @@ public class Week4CodingAssignment {
 		
 
 		/* 12 */
+	boolean isHotOutside = true;
+	double moneyInPocket = 15.50;
+	System.out.println("12. " + willBuyDrink(isHotOutside, moneyInPocket));
 		
 
 	
 		
 		/* 13 */
-
+	double totalDue = 100.00;
+	int tipAmount = 20;
+	System.out.println("13. " + billPlusTip(totalDue, tipAmount));
 		
 		}
 		
@@ -170,15 +170,24 @@ public class Week4CodingAssignment {
 		return getAverageOfDoubleArr(firstArr) > getAverageOfDoubleArr(secondArr); 
 		}
 		
+		private static boolean willBuyDrink(boolean isHotOutside, double moneyinPocket)
+		{ if (isHotOutside == true && moneyinPocket > 10.5)
+			return true;
+		else
+			return false;
+		}
+		/* 13:
+		 * This method will assist in figuring out the tip amount when receiving a service. 
+		 * It will return the total to be paid plus tip. 
+		 */
+		public static double billPlusTip(double totalDue, int tipAmount)
+		{
+			double tip = totalDue * (tipAmount / 100.0);
+			return totalDue + tip;
+		}
 
-		
-
-		/*
-		* getAge calculates a new user's age with the given birthYear
-		*/
-		private static int getAge(int birthYear) {
-		return Year.now().getValue() - birthYear; 
+	
 	
 	}
 
-}
+
